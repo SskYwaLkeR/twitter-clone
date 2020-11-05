@@ -1,0 +1,15 @@
+.posts-wrapper {
+    padding: 0 0.875rem;
+    display: flex;
+
+    .profile {
+        width: 40px;
+        height: 40px;
+        background-color: red;
+        border-radius: 50%;
+    }
+
+    .post-container {
+        width: calc(100% - 40px);
+    }
+}
