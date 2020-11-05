@@ -5,8 +5,9 @@
 }
 
 .posts-wrapper {
-    padding: 0 0.875rem;
+    padding: 0.5rem 0.875rem;
     display: flex;
+    border-bottom: solid 1px #f1f1f1;
 
     .profile {
         width: 40px;
