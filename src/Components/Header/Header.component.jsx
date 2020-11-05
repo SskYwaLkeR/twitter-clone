@@ -1,3 +1,5 @@
+import './header.styles.scss'
+
 function Header() {
     return (
         <div className="header-wrapper">
