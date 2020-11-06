@@ -8,17 +8,18 @@ import PublishOutlinedIcon from '@material-ui/icons/PublishOutlined'
 
 class Posts extends React.Component {
     render() {
+        let { name, description, img } = this.props
+
         return (
             <div className="posts-wrapper">
                 <div className="profile"></div>
                 <div className="post-container">
                     <div className="post-header">
-                        <h3>Mr X</h3>
+                        <h3>{name.split(' ')[0]}</h3>
                     </div>
-                    <div className="post-body">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing
-                        elit. Tempora et obcaecati qui blanditiis nobis quos
-                        nostrum itaque ipsum, esse dolores!
+                    <div className="post-body">{description}</div>
+                    <div className="post-img">
+                        <img src={img} width="100px" alt="tweet img" />
                     </div>
                     <div className="post-footer">
                         <div className="footer-item">
