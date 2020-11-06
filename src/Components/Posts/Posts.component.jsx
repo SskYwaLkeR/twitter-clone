@@ -30,25 +30,25 @@ function Posts({ name, description, img }) {
                     <img src={img} width="100px" alt="tweet img" />
                 </div>
                 <div className="post-footer">
-                    <div className="footer-item">
-                        <div className="footer-svg">
+                    <div className="footer-item ">
+                        <div className="footer-svg comments">
                             <ChatBubbleOutlineIcon />
                         </div>
                     </div>
                     <div className=" footer-item " onClick={handleRetweet}>
-                        <div className="footer-svg">
+                        <div className="footer-svg retweet">
                             <ImportExportIcon />
                         </div>
                         <span className="counts">{retweet}</span>
                     </div>
-                    <div className="footer-item likes" onClick={handleLike}>
-                        <div className="footer-svg">
+                    <div className="footer-item " onClick={handleLike}>
+                        <div className="footer-svg likes">
                             <FavoriteBorderIcon />
                         </div>
                         <span className="counts">{likes}</span>
                     </div>
-                    <div className="footer-item option">
-                        <div className="footer-svg">
+                    <div className="footer-item option ">
+                        <div className="footer-svg options">
                             <PublishOutlinedIcon />
                         </div>
                     </div>

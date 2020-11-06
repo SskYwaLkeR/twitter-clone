@@ -34,13 +34,49 @@
                 border-radius: 50%;
                 @extend .flex-center;
 
-                &:hover {
-                    background-color: #e4e4e4;
-                }
+                // &:hover {
+                //     background-color: #e4e4e4;
+                // }
             }
 
             &:nth-child(1) {
                 margin-left: -12px;
+            }
+        }
+
+        .comments {
+            &:hover {
+                cursor: pointer;
+                background-color: #0000ff2d;
+                filter: invert(27%) sepia(51%) saturate(2878%)
+                    hue-rotate(220deg) brightness(104%) contrast(97%);
+            }
+        }
+
+        .retweet {
+            &:hover {
+                cursor: pointer;
+                background-color: #00000052;
+                filter: invert(27%) sepia(51%) saturate(2878%)
+                    hue-rotate(150deg) brightness(104%) contrast(97%);
+            }
+        }
+
+        .likes {
+            &:hover {
+                cursor: pointer;
+                background-color: #00000027;
+                filter: invert(27%) sepia(51%) saturate(2878%)
+                    hue-rotate(320deg) brightness(104%) contrast(97%);
+            }
+        }
+
+        .option {
+            &:hover {
+                cursor: pointer;
+                background-color: #00000052;
+                filter: invert(27%) sepia(51%) saturate(2878%)
+                    hue-rotate(150deg) brightness(104%) contrast(97%);
             }
         }
     }
