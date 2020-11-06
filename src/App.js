@@ -11,6 +11,7 @@ import Profile from './Components/Profile/Profile.jsx'
 function App() {
     let [data, setData] = useState([])
     let [isBottom, setBottom] = useState(false)
+    let [search, setSearch] = useState('')
 
     useEffect(() => {
         window.addEventListener('scroll', function () {
@@ -35,10 +36,13 @@ function App() {
         apiFunc()
     }, [isBottom])
 
+    let handleType = e => {
+        setSearch(e.target.value)
+    }
     return (
         <Router>
             <div className="App">
-                <Header />
+                <Header handleSearch={e => handleType(e)} />
                 <Switch>
                     <Route path="/" exact>
                         <div className="post">
@@ -57,7 +61,7 @@ function App() {
                         <Profile />
                     </Route>
                     <Route path="/explore" exact>
-                        <Explore />
+                        <Explore keyword={search} />
                     </Route>
                 </Switch>
 

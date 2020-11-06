@@ -1,7 +1,11 @@
 import { useState, useEffect } from 'react'
 
-function Explore() {
+function Explore({ keyword }) {
     let [data, setData] = useState([])
+
+    const filteredNews = data.filter(item => {
+        return item.author.toLowerCase().includes(keyword.toLowerCase())
+    })
 
     useEffect(() => {
         let apiData = async () => {
@@ -16,10 +20,13 @@ function Explore() {
 
     return (
         <div className="explore-wrapper">
-            {data.map((el, i) => (
-                <span key={i}>
-                    {el.author} <br />
-                </span>
+            {filteredNews.map((el, i) => (
+                <div className="quotes">
+                    <span key={i}>
+                        {el.author} <br />
+                    </span>
+                    <p>{el.text}</p> <br />
+                </div>
             ))}
         </div>
     )
