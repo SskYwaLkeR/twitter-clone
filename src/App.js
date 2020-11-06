@@ -2,6 +2,7 @@ import './App.css'
 import Header from './Components/Header/Header.component.jsx'
 import Post from './Components/Posts/Posts.component.jsx'
 import Footer from './Components/Footer/Footer.component.jsx'
+import Explore from './Components/Explore/Explore.component.jsx'
 
 import { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
@@ -54,6 +55,9 @@ function App() {
 
                     <Route path="/profile" exact>
                         <Profile />
+                    </Route>
+                    <Route path="/explore" exact>
+                        <Explore />
                     </Route>
                 </Switch>
 

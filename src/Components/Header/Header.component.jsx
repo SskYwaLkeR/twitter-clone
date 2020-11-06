@@ -5,6 +5,10 @@ function Header() {
     return (
         <div className="header-wrapper">
             <h1>{path === '' ? 'Home' : path}</h1>
+
+            {path === 'explore' ? (
+                <input type="text" name="Search" id="" />
+            ) : null}
         </div>
     )
 }

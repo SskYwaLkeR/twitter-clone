@@ -12,7 +12,9 @@ function Footer() {
             <Link to="/">
                 <HomeRoundedIcon />
             </Link>
-            <SearchIcon />
+            <Link to="/explore">
+                <SearchIcon />
+            </Link>
             <NotificationsOutlinedIcon />
 
             <Link to="/profile">
