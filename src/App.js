@@ -4,6 +4,8 @@ import Post from './Components/Posts/Posts.component.jsx'
 import Footer from './Components/Footer/Footer.component.jsx'
 
 import { useState, useEffect } from 'react'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import Profile from './Components/Profile/Profile.jsx'
 
 function App() {
     let [data, setData] = useState([])
@@ -33,21 +35,31 @@ function App() {
     }, [isBottom])
 
     return (
-        <div className="App">
-            <Header />
+        <Router>
+            <div className="App">
+                <Header />
+                <Switch>
+                    <Route path="/" exact>
+                        <div className="post">
+                            {data.map((el, idx) => (
+                                <Post
+                                    key={idx}
+                                    description={el.description}
+                                    img={el.image_url}
+                                    name={el.contributed_by}
+                                />
+                            ))}
+                        </div>
+                    </Route>
 
-            <div className="post">
-                {data.map((el, idx) => (
-                    <Post
-                        key={idx}
-                        description={el.description}
-                        img={el.image_url}
-                        name={el.contributed_by}
-                    />
-                ))}
+                    <Route path="/profile" exact>
+                        <Profile />
+                    </Route>
+                </Switch>
+
+                <Footer />
             </div>
-            <Footer />
-        </div>
+        </Router>
     )
 }
 
