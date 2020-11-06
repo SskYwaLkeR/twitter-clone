@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './posts.styles.scss'
 
 import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline'
@@ -6,49 +6,56 @@ import ImportExportIcon from '@material-ui/icons/ImportExport'
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder'
 import PublishOutlinedIcon from '@material-ui/icons/PublishOutlined'
 
-class Posts extends React.Component {
-    render() {
-        let { name, description, img } = this.props
+function Posts({ name, description, img }) {
+    let [likes, setLikes] = useState(0)
+    let [retweet, setRetweet] = useState(0)
 
-        return (
-            <div className="posts-wrapper">
-                <div className="profile"></div>
-                <div className="post-container">
-                    <div className="post-header">
-                        <h3>{name.split(' ')[0]}</h3>
+    let handleLike = () => {
+        setLikes(likes + 1)
+    }
+
+    let handleRetweet = () => {
+        setRetweet(retweet + 1)
+    }
+
+    return (
+        <div className="posts-wrapper">
+            <div className="profile"></div>
+            <div className="post-container">
+                <div className="post-header">
+                    <h3>{name.split(' ')[0]}</h3>
+                </div>
+                <div className="post-body">{description}</div>
+                <div className="post-img">
+                    <img src={img} width="100px" alt="tweet img" />
+                </div>
+                <div className="post-footer">
+                    <div className="footer-item">
+                        <div className="footer-svg">
+                            <ChatBubbleOutlineIcon />
+                        </div>
                     </div>
-                    <div className="post-body">{description}</div>
-                    <div className="post-img">
-                        <img src={img} width="100px" alt="tweet img" />
+                    <div className=" footer-item " onClick={handleRetweet}>
+                        <div className="footer-svg">
+                            <ImportExportIcon />
+                        </div>
+                        <span className="counts">{retweet}</span>
                     </div>
-                    <div className="post-footer">
-                        <div className="footer-item">
-                            <div className="footer-svg">
-                                <ChatBubbleOutlineIcon />
-                            </div>
+                    <div className="footer-item likes" onClick={handleLike}>
+                        <div className="footer-svg">
+                            <FavoriteBorderIcon />
                         </div>
-                        <div className=" footer-item ">
-                            <div className="footer-svg">
-                                <ImportExportIcon />
-                            </div>
-                            <span className="counts">2</span>
-                        </div>
-                        <div className="footer-item likes">
-                            <div className="footer-svg">
-                                <FavoriteBorderIcon />
-                            </div>
-                            <span className="counts">2</span>
-                        </div>
-                        <div className="footer-item option">
-                            <div className="footer-svg">
-                                <PublishOutlinedIcon />
-                            </div>
+                        <span className="counts">{likes}</span>
+                    </div>
+                    <div className="footer-item option">
+                        <div className="footer-svg">
+                            <PublishOutlinedIcon />
                         </div>
                     </div>
                 </div>
             </div>
-        )
-    }
+        </div>
+    )
 }
 
 export default Posts
