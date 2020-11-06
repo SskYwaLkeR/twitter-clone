@@ -21,8 +21,8 @@ function Explore({ keyword }) {
     return (
         <div className="explore-wrapper">
             {filteredNews.map((el, i) => (
-                <div className="quotes">
-                    <span key={i}>
+                <div className="quotes" key={i}>
+                    <span>
                         {el.author} <br />
                     </span>
                     <p>{el.text}</p> <br />
