@@ -1,22 +1,11 @@
-import { useState, useEffect } from 'react'
+import useFetch from '../../Hooks/useFetch.effect.js'
 
 function Explore({ keyword }) {
-    let [data, setData] = useState([])
+    let data = useFetch('https://type.fit/api/quotes', true)
 
-    const filteredNews = data.filter(item => {
-        return item.author.toLowerCase().includes(keyword.toLowerCase())
+    const filteredNews = data.filter((item, idx) => {
+        return item.author?.toLowerCase().includes(keyword.toLowerCase())
     })
-
-    useEffect(() => {
-        let apiData = async () => {
-            let response = await fetch('https://type.fit/api/quotes')
-
-            let resJson = await response.json()
-            setData(resJson.slice(0, 10))
-        }
-
-        apiData()
-    }, [])
 
     return (
         <div className="explore-wrapper">

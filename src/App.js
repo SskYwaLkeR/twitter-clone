@@ -4,37 +4,15 @@ import Post from './Components/Posts/Posts.component.jsx'
 import Footer from './Components/Footer/Footer.component.jsx'
 import Explore from './Components/Explore/Explore.component.jsx'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Profile from './Components/Profile/Profile.jsx'
+import useFetch from './Hooks/useFetch.effect.js'
 
 function App() {
-    let [data, setData] = useState([])
-    let [isBottom, setBottom] = useState(false)
     let [search, setSearch] = useState('')
 
-    useEffect(() => {
-        window.addEventListener('scroll', function () {
-            const scrollY = window.scrollY
-            const visible = document.documentElement.clientHeight
-            const pageHeight = document.documentElement.scrollHeight
-            const bottomOfPage = visible + scrollY >= pageHeight - 2
-
-            setBottom(bottomOfPage)
-        })
-
-        let apiFunc = async () => {
-            let response = await fetch(
-                'https://api.punkapi.com/v2/beers/random'
-            )
-            let resJson = await response.json()
-            setData(preState => {
-                return [...preState, resJson[0]]
-            })
-        }
-
-        apiFunc()
-    }, [isBottom])
+    let data = useFetch('https://api.punkapi.com/v2/beers/random', false)
 
     let handleType = e => {
         setSearch(e.target.value)
