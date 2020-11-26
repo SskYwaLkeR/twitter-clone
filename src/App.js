@@ -6,7 +6,8 @@ import Explore from './Components/Explore/Explore.component.jsx'
 
 import { useState } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import Profile from './Components/Profile/Profile.jsx'
+// import Profile from './Components/Profile/Profile.jsx'
+import Message from './Components/Messages/Message.component.jsx'
 import useFetch from './Hooks/useFetch.effect.js'
 
 function App() {
@@ -35,8 +36,8 @@ function App() {
                         </div>
                     </Route>
 
-                    <Route path="/profile" exact>
-                        <Profile />
+                    <Route path="/messages" exact>
+                        <Message />
                     </Route>
                     <Route path="/explore" exact>
                         <Explore keyword={search} />

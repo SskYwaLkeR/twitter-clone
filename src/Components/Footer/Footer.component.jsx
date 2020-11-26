@@ -17,7 +17,7 @@ function Footer() {
             </Link>
             <NotificationsOutlinedIcon />
 
-            <Link to="/profile">
+            <Link to="/messages">
                 <MailOutlineRoundedIcon />
             </Link>
         </div>
